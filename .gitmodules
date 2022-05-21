@@ -1,0 +1,12 @@
+[submodule "ref/mcuf"]
+	path = ref/mcuf
+	url = https://github.com/mcuFramework/mcuf.git
+	branch = library
+[submodule "ref/core_arterytek_at32f415"]
+	path = ref/core_arterytek_at32f415
+	url = https://github.com/mcuFramework/core_arterytek_at32f415.git
+	branch = library
+[submodule "ref/driver"]
+	path = ref/driver
+	url = https://github.com/mcuFramework/driver.git
+	branch = library

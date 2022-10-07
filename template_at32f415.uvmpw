@@ -13,4 +13,20 @@
     <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
+  <project>
+    <PathAndName>.\ref\mcuf\mcuf.uvprojx</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\ref\driver\driver.uvprojx</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\ref\core_arterytek_at32f415\core_arterytek_at32f415.uvprojx</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\ref\support_cmsis_rtos\support_cmsis_rtos.uvprojx</PathAndName>
+  </project>
+
 </ProjectWorkspace>

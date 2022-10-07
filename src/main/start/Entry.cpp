@@ -31,7 +31,6 @@ using start::Entry;
 using mcuf::lang::Memory;
 using mcuf::lang::Pointer;
 using mcuf::lang::Thread;
-using mcuf::util::MemoryPool;
 
 extern void setup(Thread* _this);
 extern void loop(Thread* _this);

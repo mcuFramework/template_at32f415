@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>-AT32F415RBT7</Device>
           <Vendor>ArteryTek</Vendor>
-          <PackID>ArteryTek.AT32F415_DFP.2.0.3</PackID>
+          <PackID>ArteryTek.AT32F415_DFP.2.0.6</PackID>
           <Cpu>IRAM(0x20000000,0x8000) IROM(0x08000000,0x20000) CPUTYPE("Cortex-M4") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -175,7 +175,7 @@
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>"Cortex-M4"</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
-            <mOS>0</mOS>
+            <mOS>1</mOS>
             <uocRom>0</uocRom>
             <uocRam>0</uocRam>
             <hadIROM>1</hadIROM>
@@ -335,10 +335,10 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define>AT32F415RBT7</Define>
               <Undefine></Undefine>
-              <IncludePath>.\ref\mcuf\src\main;.\ref\core_arterytek_at32f415\src\main;.\ref\driver\src\main;.\src\main;.\src\resource</IncludePath>
+              <IncludePath>.\ref\mcuf\src\main;.\ref\core_arterytek_at32f415\src\main;.\ref\driver\src\main;.\src\main;.\src\resource;.\ref\support_cmsis_rtos\src\main</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,16 +437,6 @@
               <FileType>8</FileType>
               <FilePath>.\src\resource\mcuf_lib.cpp</FilePath>
             </File>
-            <File>
-              <FileName>rtx_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\resource\rtx_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>rtx_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\resource\rtx_lib.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -467,16 +457,70 @@
               <FileType>4</FileType>
               <FilePath>.\ref\driver\target\driver_m4.lib</FilePath>
             </File>
+            <File>
+              <FileName>support_cmsis_rtos_m4.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\ref\support_cmsis_rtos\target\support_cmsis_rtos_m4.lib</FilePath>
+            </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>
   </Targets>
 
   <RTE>
-    <apis/>
-    <components/>
-    <files/>
+    <apis>
+      <api Capiversion="2.1.3" Cclass="CMSIS" Cgroup="RTOS2" exclusive="1">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </api>
+    </apis>
+    <components>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.5.0" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </component>
+      <component Capiversion="2.1.3" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cvendor="ARM" Cversion="5.5.3" condition="RTOS2 RTX5">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </component>
+    </components>
+    <files>
+      <file attr="config" category="source" name="CMSIS\RTOS2\RTX\Config\RTX_Config.c" version="5.1.1">
+        <instance index="0">RTE\CMSIS\RTX_Config.c</instance>
+        <component Capiversion="2.1.3" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cvendor="ARM" Cversion="5.5.3" condition="RTOS2 RTX5"/>
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="CMSIS\RTOS2\RTX\Config\RTX_Config.h" version="5.5.2">
+        <instance index="0">RTE\CMSIS\RTX_Config.h</instance>
+        <component Capiversion="2.1.3" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cvendor="ARM" Cversion="5.5.3" condition="RTOS2 RTX5"/>
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </file>
+    </files>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>template_at32f415</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>
